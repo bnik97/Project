@@ -1,0 +1,35 @@
+﻿@model WebApplication2.Models.Earthquake
+
+@{
+    ViewData["Title"] = "Create Earthquake";
+}
+
+<h2>Create New Earthquake</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Magnitude">Magnitude</label>
+        <input asp-for="Magnitude" class="form-control" />
+        <span asp-validation-for="Magnitude" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Coordinates">Coordinates</label>
+        <input asp-for="Coordinates" class="form-control" />
+        <span asp-validation-for="Coordinates" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Date">Date</label>
+        <input asp-for="Date" class="form-control" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

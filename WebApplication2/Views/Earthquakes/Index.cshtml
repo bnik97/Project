@@ -1,0 +1,29 @@
+﻿@model IEnumerable<WebApplication2.Models.Earthquake>
+
+<h2>Earthquakes</h2>
+<a href="@Url.Action("Create", "Earthquakes")" class="btn btn-primary">Create New Earthquake</a>
+<form asp-action="Index" method="get">
+    <div class="form-group">
+        <label for="searchString">Search</label>
+        <input type="text" class="form-control" id="searchString" name="coordinates">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<table>
+    <tr>
+        <th>Magnitude</th>
+        <th>Coordinates</th>
+        <th>Date</th>
+    </tr>
+
+    @foreach (var earthquake in Model)
+    {
+        <tr>
+            <td>@earthquake.Magnitude</td>
+            <td>@earthquake.Coordinates</td>
+            <td>@earthquake.Date.ToString("yyyy-MM-dd")</td>
+        </tr>
+    }
+</table>
